@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace Proyecto_Grupal.Models
 {
@@ -42,5 +43,7 @@ namespace Proyecto_Grupal.Models
         public string Correo { get; set; }
 
         public bool IsActive { get; set; } = true;
+
+        public virtual ICollection<EmpleadoDepartamento> EmpleadoDepartamentos { get; set; } = new List<EmpleadoDepartamento>();
     }
 }

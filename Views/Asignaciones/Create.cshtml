@@ -1,0 +1,46 @@
+@model Proyecto_Grupal.Models.EmpleadoDepartamento
+
+@{
+    ViewData["Title"] = "Crear Asignación";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Crear Asignación</h2>
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label class="form-label">Empleado</label>
+                <select asp-for="EmpleadoId" asp-items="ViewBag.Empleados" class="form-input"></select>
+                <span asp-validation-for="EmpleadoId" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Departamento</label>
+                <select asp-for="DepartamentoId" asp-items="ViewBag.Departamentos" class="form-input"></select>
+                <span asp-validation-for="DepartamentoId" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FromDate" class="form-label"></label>
+                <input asp-for="FromDate" type="date" class="form-input" />
+                <span asp-validation-for="FromDate" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ToDate" class="form-label"></label>
+                <input asp-for="ToDate" type="date" class="form-input" />
+                <span asp-validation-for="ToDate" class="form-error"></span>
+                <div class="form-help">Dejar en blanco para vigencia abierta</div>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-primary">Guardar</button>
+                <a asp-action="Index" class="btn-secondary ml-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />

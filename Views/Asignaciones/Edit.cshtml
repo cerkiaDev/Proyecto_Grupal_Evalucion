@@ -1,0 +1,52 @@
+@model Proyecto_Grupal.Models.EmpleadoDepartamento
+
+@{
+    ViewData["Title"] = "Editar Asignación";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Editar Asignación</h2>
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label class="form-label">Empleado</label>
+                <select asp-for="EmpleadoId" asp-items="ViewBag.Empleados" class="form-input"></select>
+                <span asp-validation-for="EmpleadoId" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Departamento</label>
+                <select asp-for="DepartamentoId" asp-items="ViewBag.Departamentos" class="form-input"></select>
+                <span asp-validation-for="DepartamentoId" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FromDate" class="form-label"></label>
+                <input asp-for="FromDate" type="date" class="form-input" />
+                <span asp-validation-for="FromDate" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ToDate" class="form-label"></label>
+                <input asp-for="ToDate" type="date" class="form-input" />
+                <span asp-validation-for="ToDate" class="form-error"></span>
+                <div class="form-help">Dejar en blanco para vigencia abierta</div>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="IsActive" class="form-input" type="checkbox" />
+                <label asp-for="IsActive" class="form-label ml-2">Activo</label>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-primary">Guardar</button>
+                <a asp-action="Index" class="btn-secondary ml-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />
