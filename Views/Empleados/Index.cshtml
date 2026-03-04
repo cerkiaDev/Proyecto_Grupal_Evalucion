@@ -1,0 +1,55 @@
+@model IEnumerable<Proyecto_Grupal.Models.Empleado>
+
+@{
+    ViewData["Title"] = "Empleados";
+}
+
+<div class="site-container py-8">
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-bold">Empleados</h1>
+        <a class="btn-primary" asp-action="Create">Nuevo empleado</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="min-w-full bg-white border table">
+            <thead>
+                <tr class="bg-gray-100 text-left">
+                    <th class="px-4 py-2">#</th>
+                    <th class="px-4 py-2">Emp No</th>
+                    <th class="px-4 py-2">CI</th>
+                    <th class="px-4 py-2">Nombre</th>
+                    <th class="px-4 py-2">Genero</th>
+                    <th class="px-4 py-2">Fecha Nac.</th>
+                    <th class="px-4 py-2">Fecha Ingreso</th>
+                    <th class="px-4 py-2">Correo</th>
+                    <th class="px-4 py-2">Activo</th>
+                    <th class="px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var e in Model)
+            {
+                <tr class="border-t">
+                    <td class="px-4 py-2">@e.Id</td>
+                    <td class="px-4 py-2">@e.EmpNo</td>
+                    <td class="px-4 py-2">@e.CI</td>
+                    <td class="px-4 py-2">@e.FirstName @e.LastName</td>
+                    <td class="px-4 py-2">@e.Gender</td>
+                    <td class="px-4 py-2">@e.BirthDate.ToString("yyyy-MM-dd")</td>
+                    <td class="px-4 py-2">@e.HireDate.ToString("yyyy-MM-dd")</td>
+                    <td class="px-4 py-2">@e.Correo</td>
+                    <td class="px-4 py-2">@(e.IsActive ? "Sí" : "No")</td>
+                    <td class="px-4 py-2 table-actions">
+                        <a asp-action="Edit" asp-route-id="@e.Id" class="btn-secondary btn-sm mr-2">Editar</a>
+                        <a asp-action="Details" asp-route-id="@e.Id" class="btn btn-sm mr-2">Ver</a>
+                        <form asp-action="ToggleActive" asp-route-id="@e.Id" method="post" class="inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn">@(e.IsActive ? "Desactivar" : "Activar")</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+@model Proyecto_Grupal.Models.Empleado
+
+@{
+    ViewData["Title"] = "Detalle Empleado";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Detalle Empleado</h2>
+
+        <dl class="divide-y">
+            <div class="py-2">
+                <dt class="text-sm font-semibold">#</dt>
+                <dd class="text-sm">@Model.Id</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Emp No</dt>
+                <dd class="text-sm">@Model.EmpNo</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">CI</dt>
+                <dd class="text-sm">@Model.CI</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Nombre</dt>
+                <dd class="text-sm">@Model.FirstName @Model.LastName</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Genero</dt>
+                <dd class="text-sm">@Model.Gender</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Fecha Nacimiento</dt>
+                <dd class="text-sm">@Model.BirthDate.ToString("yyyy-MM-dd")</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Fecha Ingreso</dt>
+                <dd class="text-sm">@Model.HireDate.ToString("yyyy-MM-dd")</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Correo</dt>
+                <dd class="text-sm">@Model.Correo</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Activo</dt>
+                <dd class="text-sm">@(Model.IsActive ? "Sí" : "No")</dd>
+            </div>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-secondary">Editar</a>
+            <a asp-action="Index" class="btn ml-2">Volver</a>
+        </div>
+    </div>
+</div>

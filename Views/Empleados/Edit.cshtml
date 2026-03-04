@@ -1,0 +1,75 @@
+@model Proyecto_Grupal.Models.Empleado
+
+@{
+    ViewData["Title"] = "Editar Empleado";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Editar Empleado</h2>
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="EmpNo" class="form-label"></label>
+                <input asp-for="EmpNo" class="form-input" />
+                <span asp-validation-for="EmpNo" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="CI" class="form-label"></label>
+                <input asp-for="CI" class="form-input" />
+                <span asp-validation-for="CI" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="FirstName" class="form-label"></label>
+                <input asp-for="FirstName" class="form-input" />
+                <span asp-validation-for="FirstName" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="LastName" class="form-label"></label>
+                <input asp-for="LastName" class="form-input" />
+                <span asp-validation-for="LastName" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Gender" class="form-label"></label>
+                <input asp-for="Gender" class="form-input" />
+                <span asp-validation-for="Gender" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="BirthDate" class="form-label"></label>
+                <input asp-for="BirthDate" type="date" class="form-input" />
+                <span asp-validation-for="BirthDate" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="HireDate" class="form-label"></label>
+                <input asp-for="HireDate" type="date" class="form-input" />
+                <span asp-validation-for="HireDate" class="form-error"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="IsActive" class="form-input" type="checkbox" />
+                <label asp-for="IsActive" class="form-label ml-2">Activo</label>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Correo" class="form-label"></label>
+                <input asp-for="Correo" class="form-input" />
+                <span asp-validation-for="Correo" class="form-error"></span>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-primary">Guardar</button>
+                <a asp-action="Index" class="btn-secondary ml-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />
