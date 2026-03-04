@@ -28,6 +28,17 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 .mt-3{margin-top:1rem}
 .m-0{margin:0}
 
+/* Add common margin-bottom utilities used by forms */
+.mb-0{margin-bottom:0}
+.mb-1{margin-bottom:.25rem}
+.mb-2{margin-bottom:.5rem}
+.mb-3{margin-bottom:.75rem}
+.mb-4{margin-bottom:1rem}
+
+/* Utilities for centering and max width */
+.max-w-md{max-width:28rem}
+.mx-auto{margin-left:auto;margin-right:auto}
+
 /* Typography */
 .text-center{text-align:center}
 .text-left{text-align:left}
@@ -82,6 +93,13 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 
 /* Card component */
 .card{background-color:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:1.5rem}
+
+/* Form styles */
+.form-label{display:block;font-size:.875rem;font-weight:600;color:#374151;margin-bottom:.375rem}
+.form-input{display:block;width:100%;border:1px solid #e5e7eb;padding:.5rem .75rem;border-radius:.375rem;background-color:#fff;color:#111827;font-size:.9375rem;transition:box-shadow .15s, border-color .15s}
+.form-input:focus{outline:none;border-color:#6366f1;box-shadow:0 0 0 4px rgba(99,102,241,0.12)}
+.form-error{color:#dc2626;font-size:.875rem;margin-top:.375rem;display:block}
+.form-help{color:#6b7280;font-size:.875rem}
 
 /* Muted text and truncation */
 .text-muted{color:#6b7280}

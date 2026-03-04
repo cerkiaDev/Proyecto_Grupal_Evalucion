@@ -1,0 +1,48 @@
+@model Proyecto_Grupal.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Registrar cuenta";
+}
+
+<div class="site-container py-12 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-2xl font-bold mb-4">Registrar cuenta</h2>
+        <form asp-action="Register" method="post">
+            @Html.AntiForgeryToken()
+
+            <div class="mb-3">
+                <label asp-for="Nombre" class="form-label"></label>
+                <input asp-for="Nombre" class="form-input" />
+                <span asp-validation-for="Nombre" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-input" />
+                <span asp-validation-for="Email" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label"></label>
+                <input asp-for="Password" class="form-input" />
+                <span asp-validation-for="Password" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="ConfirmPassword" class="form-label"></label>
+                <input asp-for="ConfirmPassword" class="form-input" />
+                <span asp-validation-for="ConfirmPassword" class="form-error"></span>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-primary">Crear cuenta</button>
+            </div>
+        </form>
+
+        <div class="mt-4">
+            <a asp-action="Login">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />
