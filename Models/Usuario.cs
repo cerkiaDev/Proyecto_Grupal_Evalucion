@@ -12,5 +12,8 @@ namespace Proyecto_Grupal.Models
 
         [Required]
         public string Email { get; set; }
+
+        // Hashed password (store result of a password hasher)
+        public string PasswordHash { get; set; }
     }
 }
