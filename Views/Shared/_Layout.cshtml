@@ -5,46 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Proyecto_Grupal</title>
     <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Proyecto_Grupal.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.tailwind.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_Grupal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white border-b">
+        <div class="site-container flex items-center justify-between py-4">
+            <a class="text-2xl font-extrabold text-gray-900" asp-area="" asp-controller="Home" asp-action="Index">Proyecto_Grupal</a>
+
+            <nav class="hidden md:flex space-x-6" aria-label="Primary">
+                <a class="text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </nav>
+
+            <div class="md:hidden">
+                <button id="mobile-menu-button" type="button" class="btn btn-primary">Menu</button>
             </div>
-        </nav>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="site-container flex flex-col py-2">
+                <a class="py-2 text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <a class="py-2 text-gray-700 hover:text-indigo-600" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </div>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="site-container">
+        <main role="main" class="pb-6">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - Proyecto_Grupal - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <footer class="border-t text-muted">
+        <div class="site-container py-6 text-sm text-gray-600">
+            &copy; 2026 - Proyecto_Grupal - <a class="text-indigo-600 hover:text-indigo-700" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        // Simple mobile menu toggle using vanilla JS
+        (function() {
+            var btn = document.getElementById('mobile-menu-button');
+            var menu = document.getElementById('mobile-menu');
+            if (!btn) return;
+            btn.addEventListener('click', function() {
+                if (!menu) return;
+                if (menu.classList.contains('hidden')) {
+                    menu.classList.remove('hidden');
+                } else {
+                    menu.classList.add('hidden');
+                }
+            });
+        })();
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom utilities and theme base styles for the whole site */
+
+@layer base {
+  /* Root variables — can be referenced from custom CSS if needed */
+  :root {
+    --brand-50: theme('colors.indigo.50');
+    --brand-500: theme('colors.indigo.500');
+    --brand-600: theme('colors.indigo.600');
+    --muted: theme('colors.gray.500');
+  }
+
+  html, body {
+    @apply antialiased text-gray-800 bg-gray-50;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Headings */
+  h1 { @apply text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight; }
+  h2 { @apply text-2xl sm:text-3xl font-bold text-gray-900; }
+  h3 { @apply text-xl font-semibold text-gray-900; }
+
+  /* Links */
+  a {
+    @apply text-indigo-600 hover:text-indigo-700 underline-offset-2;
+    text-decoration-thickness: 1px;
+  }
+
+  /* Form elements */
+  input, textarea, select, button {
+    font-family: inherit;
+  }
+}
+
+@layer components {
+  /* Page container to keep consistent horizontal padding */
+  .site-container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
+  }
+
+  /* Card component */
+  .card {
+    @apply bg-white shadow-sm border border-gray-100 rounded-lg p-6;
+  }
+
+  /* Primary/secondary buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150;
+  }
+  .btn-primary { @apply btn bg-indigo-600 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+  .btn-secondary { @apply btn bg-gray-100 text-gray-800 hover:bg-gray-200; }
+
+  /* Form labels and help/error text */
+  .form-label { @apply block text-sm font-medium text-gray-700 mb-1; }
+  .form-input { @apply block w-full border border-gray-200 rounded-md px-3 py-2 bg-white text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-indigo-500; }
+  .form-help { @apply text-sm text-gray-500; }
+  .form-error { @apply text-sm text-red-600 mt-1; }
+}
+
+@layer utilities {
+  /* Slight dim background utility */
+  .bg-dim { background-color: rgba(0,0,0,0.04); }
+
+  /* Muted text */
+  .text-muted { @apply text-gray-500; }
+
+  /* Truncate multiline — useful for cards/previews */
+  .truncate-multiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* You can add more custom styles or extend Tailwind config if you need new colors, fonts, or utilities. */
