@@ -54,6 +54,12 @@ namespace Proyecto_Grupal.Controllers
         {
             if (!ModelState.IsValid)
             {
+                var errors = string.Join("; ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .Where(m => !string.IsNullOrEmpty(m)));
+                if (!string.IsNullOrEmpty(errors)) ModelState.AddModelError(string.Empty, "Errores de validación: " + errors);
+
                 await PopulateSelectLists();
                 return View(model);
             }
@@ -71,7 +77,17 @@ namespace Proyecto_Grupal.Controllers
             }
 
             _context.EmpleadoDepartamentos.Add(model);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error guardando en la base de datos: " + ex.Message);
+                await PopulateSelectLists();
+                return View(model);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -92,6 +108,12 @@ namespace Proyecto_Grupal.Controllers
             if (id != model.Id) return BadRequest();
             if (!ModelState.IsValid)
             {
+                var errors = string.Join("; ", ModelState.Values
+                    .SelectMany(v => v.Errors)
+                    .Select(e => e.ErrorMessage)
+                    .Where(m => !string.IsNullOrEmpty(m)));
+                if (!string.IsNullOrEmpty(errors)) ModelState.AddModelError(string.Empty, "Errores de validación: " + errors);
+
                 await PopulateSelectLists();
                 return View(model);
             }
@@ -109,7 +131,17 @@ namespace Proyecto_Grupal.Controllers
             }
 
             _context.Update(model);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (System.Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, "Error guardando en la base de datos: " + ex.Message);
+                await PopulateSelectLists();
+                return View(model);
+            }
+
             return RedirectToAction(nameof(Index));
         }
 

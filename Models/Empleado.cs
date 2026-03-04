@@ -45,5 +45,7 @@ namespace Proyecto_Grupal.Models
         public bool IsActive { get; set; } = true;
 
         public virtual ICollection<EmpleadoDepartamento> EmpleadoDepartamentos { get; set; } = new List<EmpleadoDepartamento>();
+
+        public virtual ICollection<DeptManager> DeptManagers { get; set; } = new List<DeptManager>();
     }
 }

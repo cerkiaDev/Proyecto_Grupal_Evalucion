@@ -14,6 +14,7 @@ namespace Proyecto_Grupal.Data
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<Empleado> Empleados { get; set; }
         public DbSet<EmpleadoDepartamento> EmpleadoDepartamentos { get; set; }
+        public DbSet<DeptManager> DeptManagers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,22 @@ namespace Proyecto_Grupal.Data
                 b.HasOne(ed => ed.Departamento)
                     .WithMany(d => d.EmpleadoDepartamentos)
                     .HasForeignKey(ed => ed.DepartamentoId)
+                    .OnDelete(DeleteBehavior.Restrict);
+            });
+
+            modelBuilder.Entity<DeptManager>(b =>
+            {
+                b.HasIndex(d => new { d.DepartamentoId, d.FromDate, d.ToDate });
+                b.HasCheckConstraint("CK_DeptManager_ToDate_After_FromDate", "[ToDate] IS NULL OR [ToDate] >= [FromDate]");
+
+                b.HasOne(dm => dm.Empleado)
+                    .WithMany(e => e.DeptManagers)
+                    .HasForeignKey(dm => dm.EmpleadoId)
+                    .OnDelete(DeleteBehavior.Restrict);
+
+                b.HasOne(dm => dm.Departamento)
+                    .WithMany(d => d.DeptManagers)
+                    .HasForeignKey(dm => dm.DepartamentoId)
                     .OnDelete(DeleteBehavior.Restrict);
             });
         }
