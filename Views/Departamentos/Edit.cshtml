@@ -1,0 +1,39 @@
+@model Proyecto_Grupal.Models.Departamento
+
+@{
+    ViewData["Title"] = "Editar Departamento";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Editar Departamento</h2>
+        <form asp-action="Edit" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+
+            <div class="mb-3">
+                <label asp-for="DeptNo" class="form-label"></label>
+                <input asp-for="DeptNo" class="form-input" />
+                <span asp-validation-for="DeptNo" class="form-error"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="DeptName" class="form-label"></label>
+                <input asp-for="DeptName" class="form-input" />
+                <span asp-validation-for="DeptName" class="form-error"></span>
+            </div>
+
+            <div class="form-check mb-3">
+                <input asp-for="IsActive" class="form-input" type="checkbox" />
+                <label asp-for="IsActive" class="form-label ml-2">Activo</label>
+            </div>
+
+            <div class="mt-4">
+                <button type="submit" class="btn-primary">Guardar</button>
+                <a asp-action="Index" class="btn-secondary ml-2">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<partial name="_ValidationScriptsPartial" />

@@ -89,10 +89,25 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.375rem;font-size:.875rem;font-weight:600;transition:background-color .15s}
 .btn-primary{background-color:#4f46e5;color:#fff;border:none}
 .btn-primary:hover{background-color:#4338ca}
-.btn-secondary{background-color:#f3f4f6;color:#111827}
+.btn-secondary{background-color:#e6eefc;color:#0f172a;border:1px solid #dbeafe}
+.btn-secondary:hover{background-color:#dbeafe}
+
+/* Small button variant */
+.btn-sm{padding:.25rem .5rem;font-size:.8rem;border-radius:.3125rem}
 
 /* Card component */
 .card{background-color:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:1.5rem}
+
+/* Table styles */
+.table-responsive{overflow-x:auto}
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{padding:.75rem 1rem;border-bottom:1px solid #eef2f7;text-align:left}
+.table thead th{background-color:#f3f4f6;font-weight:700;color:#111827}
+.table tbody tr:hover{background-color:#fbfdff}
+.min-w-full{min-width:100%}
+
+/* Actions cell spacing */
+.table-actions a,.table-actions button{margin-right:.5rem}
 
 /* Form styles */
 .form-label{display:block;font-size:.875rem;font-weight:600;color:#374151;margin-bottom:.375rem}
@@ -101,24 +116,26 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 .form-error{color:#dc2626;font-size:.875rem;margin-top:.375rem;display:block}
 .form-help{color:#6b7280;font-size:.875rem}
 
-/* Muted text and truncation */
+/* Form-check (checkbox) styles */
+.form-check{display:flex;align-items:center}
+.form-check input[type=checkbox]{width:1.125rem;height:1.125rem;border-radius:.25rem;border:1px solid #d1d5db}
+.form-check label{margin-left:.5rem}
+
+/* Utility helpers */
 .text-muted{color:#6b7280}
 .truncate-multiline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-
-/* Background utility used on body */
 .bg-gray-50{background-color:#f9fafb}
-
-/* Simple responsive helpers used in layout (md breakpoint ~768px) */
 .hidden{display:none}
 @media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid{display:grid}}
-
-/* Utilities for spacing used inline */
 .py-12{padding-top:3rem;padding-bottom:3rem}
 .pb-6{padding-bottom:1.5rem}
 .mt-12{margin-top:3rem}
 .grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
 @media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .gap-6{gap:1.5rem}
+.ml-2{margin-left:.5rem}
+.mr-2{margin-right:.5rem}
+.inline{display:inline}
 
 /* Small helper for underline link appearance like Tailwind's */
 a{text-decoration:underline;text-decoration-thickness:1px}
