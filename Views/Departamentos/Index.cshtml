@@ -1,0 +1,42 @@
+@model IEnumerable<Proyecto_Grupal.Models.Departamento>
+
+@{
+    ViewData["Title"] = "Departamentos";
+}
+
+<div class="site-container py-8">
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-bold">Departamentos</h1>
+        <a class="btn-primary" asp-action="Create">Nuevo departamento</a>
+    </div>
+
+    <table class="min-w-full bg-white border">
+        <thead>
+            <tr class="bg-gray-100 text-left">
+                <th class="px-4 py-2">#</th>
+                <th class="px-4 py-2">Dept No</th>
+                <th class="px-4 py-2">Nombre</th>
+                <th class="px-4 py-2">Activo</th>
+                <th class="px-4 py-2">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var d in Model)
+        {
+            <tr class="border-t">
+                <td class="px-4 py-2">@d.Id</td>
+                <td class="px-4 py-2">@d.DeptNo</td>
+                <td class="px-4 py-2">@d.DeptName</td>
+                <td class="px-4 py-2">@(d.IsActive ? "Sí" : "No")</td>
+                <td class="px-4 py-2">
+                    <a asp-action="Edit" asp-route-id="@d.Id" class="btn-secondary mr-2">Editar</a>
+                    <form asp-action="ToggleActive" asp-route-id="@d.Id" method="post" class="inline">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn">@(d.IsActive ? "Desactivar" : "Activar")</button>
+                    </form>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
