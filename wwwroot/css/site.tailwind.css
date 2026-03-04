@@ -52,10 +52,6 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 .flex-col{flex-direction:column}
 .grid{display:grid}
 
-/* Buttons (minimal) */
-.btn-tw{display:inline-block;padding:.5rem 1rem;border-radius:.375rem;background-color:#2563eb;color:#fff;text-decoration:none;border:none}
-.btn-tw:hover{background-color:#1d4ed8}
-
 /* Utility colors (common) */
 .bg-white{background-color:#fff}
 .bg-gray-100{background-color:#f3f4f6}
@@ -85,18 +81,42 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helveti
 .text-gray-900{color:#111827}
 .text-gray-800{color:#1f2937}
 
-/* Buttons used in layout and index */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.375rem;font-size:.875rem;font-weight:600;transition:background-color .15s}
-.btn-primary{background-color:#4f46e5;color:#fff;border:none}
-.btn-primary:hover{background-color:#4338ca}
-.btn-secondary{background-color:#e6eefc;color:#0f172a;border:1px solid #dbeafe}
-.btn-secondary:hover{background-color:#dbeafe}
+/* Buttons (enhanced) */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.5rem;font-size:.9375rem;font-weight:600;line-height:1;cursor:pointer;text-decoration:none;border:none;transition:background-color .15s,transform .06s,box-shadow .12s;color:inherit}
+.btn:focus{outline:none;box-shadow:0 0 0 4px rgba(99,102,241,0.12)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled],.btn.disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
 
-/* Small button variant */
+/* Primary */
+.btn-primary{background:linear-gradient(180deg,#6366f1 0%,#4f46e5 100%);color:#fff;border:none;box-shadow:0 6px 18px rgba(79,70,229,0.12),0 1px 2px rgba(16,24,40,0.05)}
+.btn-primary:hover{background:linear-gradient(180deg,#5b4be6 0%,#4338ca 100%);transform:translateY(-1px)}
+.btn-primary:focus{box-shadow:0 0 0 6px rgba(99,102,241,0.18)}
+
+/* Secondary */
+.btn-secondary{background:#eef2ff;color:#0b1220;border:1px solid #dbeafe}
+.btn-secondary:hover{background:#dbeafe;transform:translateY(-1px)}
+.btn-secondary:focus{box-shadow:0 0 0 6px rgba(219,234,254,0.2)}
+
+/* Outline */
+.btn-outline{background:transparent;border:1px solid #cbd5e1;color:#0f172a}
+.btn-outline:hover{background:#f8fafc}
+
+/* Ghost */
+.btn-ghost{background:transparent;border:none;color:#374151}
+.btn-ghost:hover{background:#f8fafc}
+
+/* Small */
 .btn-sm{padding:.25rem .5rem;font-size:.8rem;border-radius:.3125rem}
 
-/* Card component */
-.card{background-color:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:1.5rem}
+/* Block */
+.btn-block{display:block;width:100%}
+
+/* Icon variant */
+.btn-icon{padding:.5rem;border-radius:.5rem;width:2.25rem;height:2.25rem;justify-content:center}
+
+/* Small button variant from legacy (kept for compatibility) */
+.btn-tw{display:inline-block;padding:.5rem 1rem	border-radius:.375rem;background-color:#2563eb;color:#fff;text-decoration:none;border:none}
+.btn-tw:hover{background-color:#1d4ed8}
 
 /* Table styles */
 .table-responsive{overflow-x:auto}
