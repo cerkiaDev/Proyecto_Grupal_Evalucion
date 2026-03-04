@@ -2,7 +2,29 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="site-container py-12">
+    <section class="text-center">
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">Bienvenido</h1>
+        <p class="text-lg text-gray-600 mb-6">Aprende sobre <a class="text-indigo-600 hover:text-indigo-700" href="https://learn.microsoft.com/aspnet/core">cómo construir aplicaciones Web con ASP.NET Core</a>.</p>
+        <p>
+            <a class="btn-primary inline-block" asp-area="" asp-controller="Home" asp-action="Privacy">Ver privacidad</a>
+        </p>
+    </section>
+
+    <section class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="card">
+            <h3 class="text-lg font-semibold mb-2">Comenzando</h3>
+            <p class="text-muted truncate-multiline">Guía rápida para configurar tu proyecto y entender la estructura básica de la aplicación.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="text-lg font-semibold mb-2">Componentes</h3>
+            <p class="text-muted truncate-multiline">Patrones reutilizables (tarjetas, botones, formularios) ya disponibles en el tema Tailwind global.</p>
+        </div>
+
+        <div class="card">
+            <h3 class="text-lg font-semibold mb-2">Recursos</h3>
+            <p class="text-muted truncate-multiline">Documentación, ejemplos y enlaces útiles para seguir desarrollando la aplicación.</p>
+        </div>
+    </section>
 </div>

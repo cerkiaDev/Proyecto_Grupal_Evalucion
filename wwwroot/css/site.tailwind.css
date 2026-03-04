@@ -1,0 +1,108 @@
+/* Placeholder generated Tailwind CSS
+   This file was created as a minimal, fallback set of utility classes so the app
+   can use Tailwind-like classes without running the Tailwind CLI locally.
+
+   For a full, production-ready build, run:
+     npm install
+     npm run build:css
+*/
+
+/* Reset / minimal preflight */
+*,::before,::after{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+
+/* Layout helpers */
+.container{width:100%;padding-left:1rem;padding-right:1rem;margin-left:auto;margin-right:auto}
+@media (min-width:640px){.container{max-width:640px}}
+@media (min-width:768px){.container{max-width:768px}}
+@media (min-width:1024px){.container{max-width:1024px}}
+
+/* Spacing */
+.p-1{padding:.25rem}
+.p-2{padding:.5rem}
+.p-3{padding:1rem}
+.pb-3{padding-bottom:1rem}
+.mt-1{margin-top:.25rem}
+.mt-2{margin-top:.5rem}
+.mt-3{margin-top:1rem}
+.m-0{margin:0}
+
+/* Typography */
+.text-center{text-align:center}
+.text-left{text-align:left}
+.text-right{text-align:right}
+.text-muted{color:#6c757d}
+
+/* Flex / grid */
+.flex{display:flex}
+.items-center{align-items:center}
+.justify-center{justify-content:center}
+.flex-col{flex-direction:column}
+.grid{display:grid}
+
+/* Buttons (minimal) */
+.btn-tw{display:inline-block;padding:.5rem 1rem;border-radius:.375rem;background-color:#2563eb;color:#fff;text-decoration:none;border:none}
+.btn-tw:hover{background-color:#1d4ed8}
+
+/* Utility colors (common) */
+.bg-white{background-color:#fff}
+.bg-gray-100{background-color:#f3f4f6}
+.text-white{color:#fff}
+.text-dark{color:#212529}
+
+/* Helpers from existing site.css that rely on classes */
+.box-shadow{box-shadow:0 .125rem .25rem rgba(0,0,0,.075)}
+.border-bottom{border-bottom:1px solid #e5e5e5}
+.footer{padding:1rem 0}
+
+/* --- Custom additions to match Tailwind-based layout --- */
+
+/* Site container matching layout spacing used in views */
+.site-container{width:100%;padding-left:1rem;padding-right:1rem;margin-left:auto;margin-right:auto}
+@media (min-width:640px){.site-container{max-width:640px}}
+@media (min-width:768px){.site-container{max-width:768px}}
+@media (min-width:1024px){.site-container{max-width:1024px}}
+@media (min-width:1280px){.site-container{max-width:1120px}}
+
+/* Headings and typography utilities used in views */
+.text-4xl{font-size:2.25rem;line-height:1}
+@media (min-width:640px){.sm\:text-5xl{font-size:3rem;line-height:1}}
+.font-extrabold{font-weight:800}
+.text-lg{font-size:1.125rem}
+.text-gray-600{color:#4b5563}
+.text-gray-900{color:#111827}
+.text-gray-800{color:#1f2937}
+
+/* Buttons used in layout and index */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.5rem 1rem;border-radius:.375rem;font-size:.875rem;font-weight:600;transition:background-color .15s}
+.btn-primary{background-color:#4f46e5;color:#fff;border:none}
+.btn-primary:hover{background-color:#4338ca}
+.btn-secondary{background-color:#f3f4f6;color:#111827}
+
+/* Card component */
+.card{background-color:#fff;border:1px solid #e5e7eb;border-radius:.5rem;padding:1.5rem}
+
+/* Muted text and truncation */
+.text-muted{color:#6b7280}
+.truncate-multiline{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Background utility used on body */
+.bg-gray-50{background-color:#f9fafb}
+
+/* Simple responsive helpers used in layout (md breakpoint ~768px) */
+.hidden{display:none}
+@media (min-width:768px){.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid{display:grid}}
+
+/* Utilities for spacing used inline */
+.py-12{padding-top:3rem;padding-bottom:3rem}
+.pb-6{padding-bottom:1.5rem}
+.mt-12{margin-top:3rem}
+.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}
+@media (min-width:768px){.md\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.gap-6{gap:1.5rem}
+
+/* Small helper for underline link appearance like Tailwind's */
+a{text-decoration:underline;text-decoration-thickness:1px}
+
+/* End of placeholder and custom additions */
