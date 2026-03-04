@@ -1,0 +1,49 @@
+@model IEnumerable<Proyecto_Grupal.Models.DeptManager>
+
+@{
+    ViewData["Title"] = "Gerentes de Departamento";
+}
+
+<div class="site-container py-8">
+    <div class="flex items-center justify-between mb-4">
+        <h1 class="text-2xl font-bold">Gerentes de Departamento</h1>
+        <a class="btn-primary" asp-action="Create">Nuevo gerente</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="min-w-full bg-white border table">
+            <thead>
+                <tr class="bg-gray-100 text-left">
+                    <th class="px-4 py-2">#</th>
+                    <th class="px-4 py-2">Empleado</th>
+                    <th class="px-4 py-2">Departamento</th>
+                    <th class="px-4 py-2">Desde</th>
+                    <th class="px-4 py-2">Hasta</th>
+                    <th class="px-4 py-2">Activo</th>
+                    <th class="px-4 py-2">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var g in Model)
+            {
+                <tr class="border-t">
+                    <td class="px-4 py-2">@g.Id</td>
+                    <td class="px-4 py-2">@g.Empleado?.FirstName @g.Empleado?.LastName (@g.Empleado?.EmpNo)</td>
+                    <td class="px-4 py-2">@g.Departamento?.DeptName</td>
+                    <td class="px-4 py-2">@g.FromDate.ToString("yyyy-MM-dd")</td>
+                    <td class="px-4 py-2">@(g.ToDate.HasValue ? g.ToDate.Value.ToString("yyyy-MM-dd") : "-")</td>
+                    <td class="px-4 py-2">@(g.IsActive ? "Sí" : "No")</td>
+                    <td class="px-4 py-2 table-actions">
+                        <a asp-action="Edit" asp-route-id="@g.Id" class="btn-secondary btn-sm mr-2">Editar</a>
+                        <a asp-action="Details" asp-route-id="@g.Id" class="btn btn-sm mr-2">Ver</a>
+                        <form asp-action="ToggleActive" asp-route-id="@g.Id" method="post" class="inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit" class="btn">@(g.IsActive ? "Desactivar" : "Activar")</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>

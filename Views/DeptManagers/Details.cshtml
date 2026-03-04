@@ -1,0 +1,43 @@
+@model Proyecto_Grupal.Models.DeptManager
+
+@{
+    ViewData["Title"] = "Detalle Gerente";
+}
+
+<div class="site-container py-8 max-w-md mx-auto">
+    <div class="card">
+        <h2 class="text-xl font-bold mb-4">Detalle Gerente de Departamento</h2>
+
+        <dl class="divide-y">
+            <div class="py-2">
+                <dt class="text-sm font-semibold">#</dt>
+                <dd class="text-sm">@Model.Id</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Empleado</dt>
+                <dd class="text-sm">@Model.Empleado?.FirstName @Model.Empleado?.LastName (@Model.Empleado?.EmpNo)</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Departamento</dt>
+                <dd class="text-sm">@Model.Departamento?.DeptName</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Desde</dt>
+                <dd class="text-sm">@Model.FromDate.ToString("yyyy-MM-dd")</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Hasta</dt>
+                <dd class="text-sm">@(Model.ToDate.HasValue ? Model.ToDate.Value.ToString("yyyy-MM-dd") : "-")</dd>
+            </div>
+            <div class="py-2">
+                <dt class="text-sm font-semibold">Activo</dt>
+                <dd class="text-sm">@(Model.IsActive ? "Sí" : "No")</dd>
+            </div>
+        </dl>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn-secondary">Editar</a>
+            <a asp-action="Index" class="btn ml-2">Volver</a>
+        </div>
+    </div>
+</div>
