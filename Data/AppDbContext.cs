@@ -12,5 +12,6 @@ namespace Proyecto_Grupal.Data
 
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
     }
 }
